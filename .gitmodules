@@ -1,3 +1,6 @@
 [submodule "Scripts/BBQ/jquery-bbq"]
 	path = Scripts/BBQ/jquery-bbq
 	url = https://github.com/cowboy/jquery-bbq.git
+[submodule "jQueryPlugins/BBQ"]
+	path = jQueryPlugins/BBQ
+	url = https://github.com/cowboy/jquery-bbq.git
