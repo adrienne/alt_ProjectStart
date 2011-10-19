@@ -9,22 +9,20 @@ function RandomChars(length,current) {
     }
     
 (function(global) {
-  // Maintain a map of already-encountered types for super-fast lookups. This
-  // serves the dual purpose of being an object from which to use the function
-  // Object.prototype.toString for retrieving an object's [[Class]].
-  var types = {};
-
   // Return a useful value based on a passed object's [[Class]] (when possible).
   Object.toType = function(obj) {
     var key;
     // If the object is null, return "Null" (IE <= 8)
-    return obj === null ? "Null"
+    return obj === null ? { itemType : "Null" }
       // If the object is undefined, return "Undefined" (IE <= 8)
-      : obj == null ? "Undefined"
+      : obj == null ? { itemType : "Undefined" }
       // If the object is the global object, return "Global"
-      : obj === global ? "Global"
+      : obj === global ? { itemType : "Global" }
       // Otherwise return the XXXXX part of the full [object XXXXX] value, from
       // cache if possible.
-      : types[key = types.toString.call(obj)] || (types[key] = key.match(/\s([a-zA-Z]+)/)[1]);
+      : {
+        itemType : ({}).toString.call(obj).match(/\s([a-z|A-Z]+)/)[1],
+        itemConstructor : obj.constructor
+        }
   };
 }(this));
