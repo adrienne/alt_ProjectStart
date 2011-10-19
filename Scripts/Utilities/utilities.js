@@ -25,6 +25,6 @@ function RandomChars(length,current) {
       : obj === global ? "Global"
       // Otherwise return the XXXXX part of the full [object XXXXX] value, from
       // cache if possible.
-      : types[key = types.toString.call(obj)] || (types[key] = key.match(/\s([a-zA-Z]+)/)[1]+" "+obj.constructor);
+      : types[key = types.toString.call(obj)] || (types[key] = key.match(/\s([a-zA-Z]+)/)[1]);
   };
 }(this));
