@@ -22,7 +22,7 @@ function RandomChars(length,current) {
       // cache if possible.
       : {
         itemType : ({}).toString.call(obj).match(/\s([a-z|A-Z]+)/)[1],
-        itemConstructor : ({}).toString.call(obj.constructor).match(/\s*function (.*)\(/)[1]
+        itemConstructor : ( ({}).toString.call(obj.constructor).match(/\s*function (.*)\(/)[1] ) ? ({}).toString.call(obj.constructor).match(/\s*function (.*)\(/)[1] : undefined
         }
   };
 }(this));
