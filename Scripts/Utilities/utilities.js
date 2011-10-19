@@ -9,7 +9,6 @@ function RandomChars(length,current) {
     }
     
 (function(global) {
-  // Return a useful value based on a passed object's [[Class]] (when possible).
   Object.toType = function(obj) {
     var key;
     // If the object is null, return "Null" (IE <= 8)
@@ -22,8 +21,8 @@ function RandomChars(length,current) {
       // cache if possible.
       : {
         itemType : ({}).toString.call(obj).match(/\s([a-z|A-Z]+)/)[1],
-        objectType : (obj.constructor.toString().match(/\s*function (.*)\(/)) ? obj.constructor.toString().match(/\s*function (.*)\(/)[1] : undefined,
-        domType : (obj.jquery) ? 'jQuery' : obj.nodeType
+        objectType : (obj.constructor && (obj.constructor.toString().match(/\s*function (.*)\(/))) ? obj.constructor.toString().match(/\s*function (.*)\(/)[1] : undefined,
+        domType : (obj.jquery) ? 'jQuery' : ((obj.nodeType) ? 'DOM' : undefined)
         }
   };
 }(this));
