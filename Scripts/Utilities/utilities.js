@@ -22,7 +22,8 @@ function RandomChars(length,current) {
       // cache if possible.
       : {
         itemType : ({}).toString.call(obj).match(/\s([a-z|A-Z]+)/)[1],
-        objectType : obj.constructor.toString().match(/\s*function (.*)\(/)[1]
+        objectType : obj.constructor.toString().match(/\s*function (.*)\(/)[1],
+        domType : (obj.jquery) ? 'jQuery' : obj.nodeType
         }
   };
 }(this));
