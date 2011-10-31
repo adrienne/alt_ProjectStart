@@ -37,8 +37,8 @@ var ALTutils = ALTutils || {};  // Declare a namespace^
           : {
             itemType : ({}).toString.call(obj).match(/\s([a-z|A-Z]+)/)[1],
             /* TODO: there's a bug in objectType */
-            objectType : (obj.constructor && (obj.constructor.toString().match(/\s*function (.*)\(/))) ? obj.constructor.toString().match(/\s*function (.*)\(/)[1] : undefined,
-            domType : (obj.jquery) ? 'jQuery' : ((obj.nodeType) ? 'DOM' : undefined)
+            objectType : (obj.constructor && (obj.constructor.toString().match(/\s*function (.*)\(/))) ? obj.constructor.toString().match(/\s*function (.*)\(/)[1] : null,
+            domType : (obj.jquery) ? 'jQuery' : ((obj.nodeType) ? 'DOM' : null)
             }
         };
         
