@@ -13,10 +13,12 @@ var ALTutils = ALTutils || {};  // Declare a namespace^
 ** -- A recursive function to return a string of random characters.                            -- ** 
 ** -- Pass the number of characters you want to length; do not pass a value to current.        -- **
 ** ---------------------------------------------------------------------------------------------- */
-    ALTutils.RandomChars = function (length,current) {
-        var allowedchars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghiklmnopqrstuvwxyz";
+    ALTutils.RandomChars = function (length,allchars=FALSE,current) {
+        allowedchars = (allchars)
+                    ? allchars
+                    : "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghiklmnopqrstuvwxyz";
         current = current || '';
-        return length ? this.RandomChars(--length,allowedchars.charAt(Math.floor(Math.random() * allowedchars.length)) + current) : current;
+        return length ? this.RandomChars(--length,allowedchars,allowedchars.charAt(Math.floor(Math.random() * allowedchars.length)) + current) : current;
         };
 
 /* --  ALTutils.isType^ (obj OBJECT) ------------------------------------------------------------ **
